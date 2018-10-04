@@ -1,0 +1,36 @@
+//QUESTÃO 1 DA LISTA DE IP
+#include <stdio.h>
+#define MAX 500
+
+
+int calculateSum(int size,int v[MAX]){
+
+
+    int sum=0, i;
+
+    printf("\nWelcome to the most modern tecnology in array sum \n\n");
+    printf("How many elements do you want to sum?\n");
+    scanf("%d", &size);
+    for(i=0; i<size; i++){
+        printf("Element [%d]: \n", i+1);
+        scanf("%d", &v[i]);
+    }
+
+    for(i=0; i<size; i++){
+        sum+=v[i];
+    }
+    return sum;
+    }
+
+
+int main(){
+
+    int amount, u[MAX], calculation;
+
+    calculation= calculateSum(amount, u);
+
+    printf("Your sum is: %d\n", calculation);
+
+
+    return 0;
+}
