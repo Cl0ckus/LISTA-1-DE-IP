@@ -1,0 +1,50 @@
+//QUESTÃO 2 DA LISTA DE IP
+#include <stdio.h>
+#define MAX 500
+
+
+double calculateMult(int size, int v[MAX], int u[MAX]){
+
+
+    int sum=0, i, mult1=1, mult2=1;
+
+    printf("\nWelcome to the most modern tecnology in internal product in arrays\n\n");
+    printf("How many elements do you want in your arrays?\n");
+    scanf("%d", &size);
+
+    printf("Array 1: \n\n");
+    for(i=0; i<size; i++){
+        printf("Element [%d]: \n", i+1);
+        scanf("%d", &v[i]);
+    }
+    printf("Array 2: \n\n");
+    for(i=0; i<size; i++){
+        printf("Element [%d]: \n", i+1);
+        scanf("%d", &u[i]);
+    }
+
+    for(i=0; i<size; i++){
+        mult1*=v[i];
+    }
+    for(i=0; i<size; i++){
+        mult2*=u[i];
+    }
+
+
+    sum = mult1+mult2;
+
+    return sum;
+    }
+
+
+int main(){
+
+    int amount, a[MAX], calculation, b[MAX];
+
+    calculation= calculateMult(amount, a, b);
+
+    printf("Your internal product is: %d\n", calculation);
+
+
+    return 0;
+}
