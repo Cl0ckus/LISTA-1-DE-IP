@@ -1,0 +1,18 @@
+//QUESTÃO 3 DA LISTA DE IP
+
+#include <stdio.h>
+#define MAX 100
+#define TRUE 1
+#define FALSE 0
+
+int verifyIdentity(int matrice[MAX][MAX]; )
+
+
+
+
+
+int main(){
+
+
+
+}
