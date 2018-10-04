@@ -1,11 +1,69 @@
 //QUESTÃO 3 DA LISTA DE IP
 
 #include <stdio.h>
-#define MAX 100
+#include <string.h>
+#define MAX1 10
+#define MAX2 10
 #define TRUE 1
 #define FALSE 0
 
-int verifyIdentity(int matrice[MAX][MAX]; )
+char verifyIdentity(int lines, int matrice[MAX1][MAX2]){
+
+    int i,j,  columns;
+    char boolean;
+    char identity[100];
+
+  
+
+    printf("WELCOME TO THE NEW MATRIZ IDENTITY SOLUTION 5000\n\n");
+    printf("Type how many lines and columns your matrice has: \n");
+    scanf("%d", &lines);
+
+    columns=lines;
+
+    for(i=0; i<lines; i++){
+        for(i=0; j<columns; i++){
+            
+            printf("Type the element [%d][%d]: \n", i+1, j+1);
+            scanf("%d", matrice[i][j]);
+
+         }
+
+    }
+
+    do{
+        boolean=FALSE;
+        for(i=0; i<lines; i++){
+            for(i=0; j<lines; i++){
+                if(i==j){
+                    if(matrice[i][j]==1){
+                        strcpy(identity, " YU");
+                        boolean = TRUE;
+
+                    }
+                }
+                else if(i!=j){
+                   if(matrice[i][j]==0){
+                        strcpy(identity, " TUT");
+                        boolean = TRUE;
+
+                    }
+                }
+
+                if(boolean==FALSE){
+                    strcpy(identity, " NOT");
+                }
+
+            }
+
+        }
+
+        
+    }while(boolean==TRUE&&j<lines);
+
+    return identity;
+
+}
 
 
 
@@ -13,6 +71,10 @@ int verifyIdentity(int matrice[MAX][MAX]; )
 
 int main(){
 
+    int size, m[MAX1][MAX2],identity;
+    verifyIdentity(size, m);
+    printf("THE MATRICE IS%S IDENTITY", identity);
 
 
+    return 0;
 }
