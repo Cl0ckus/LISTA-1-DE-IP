@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void strsub(char *str1[200], char *str2[200], int i){
+void strsub(char str1[200], char str2[200], int i){
 
     int j, lenStr,k=0;
     lenStr= i+1+strlen(str2);
@@ -27,9 +27,11 @@ int main(){
     printf("Type another string:\n");
     scanf(" %[^\n]s", strM2[200]);
     printf("Type an integer");
-    scanf("%d", iM);
+    scanf("%d", &iM);
 
-    printf("%s", strsub(strM1, strM2, iM));
+    strsub(strM1, strM2, iM);
+
+    printf("%s", strM1);
     
 
     return 0;
