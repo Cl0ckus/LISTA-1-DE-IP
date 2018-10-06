@@ -1,0 +1,46 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void tMatrice() {
+    int nL, nC, i,j;
+
+    printf("How many lines does your matrice has?\n");
+    scanf("%d", &nL);
+    printf("How many columns does your matrice has?\n");
+    scanf("%d", &nC);
+    int matriz[nL][nC];
+    for(i=0; i<nL ; i++){
+        for(j=0; j<nC; j++){
+        printf("Type the element [%d][%d]\n", i+1, j+1);
+        scanf("%d", &matriz[i][j]);
+        }
+    }    
+
+  printf("Your  matrice is:\n");
+    for(i=0; i<nL ; i++){
+        printf("| ");
+        for(j=0; j<nC; j++){
+        
+        printf("%d ", matriz[i][j]);
+        }
+        printf("|\n");
+    }
+
+
+
+    printf("Your transposed matrice is:\n");
+    for(i=0; i<nC ; i++){
+        printf("| ");
+        for(j=0; j<nL; j++){
+        
+        printf("%d ", matriz[j][i]);
+        }
+        printf("|\n");
+    }
+}
+
+int main(){
+  tMatrice();
+  return 0;
+}
