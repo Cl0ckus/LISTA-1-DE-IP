@@ -1,80 +1,74 @@
 #include <stdio.h>
-#include <string.h>
-#define TRUE 1
-#define FALSE 0
+#include <stdlib.h>
+#define LINES 20
+#define COLUMNS 20
 
+int verifyDiagonal(int size, int matrice[LINES][COLUMNS]){
+    int i, j;
+    int diagonal=0;
 
-
-
-
-
-char* verifyDiagonal(int size, int matrice[][20]){
-
-    int i,j,size;
-    char diagonal[10];
-    char boolean;
-
-    printf("What is the size of your matrice NxN?\n");
+    printf("What is the size of your matrice?\n");
     scanf("%d", &size);
+
     for(i=0; i<size; i++){
-        for(j=0;j<size; j++){
-            printf("Type the element [%d][%d]\n", i+1, j+1);
+        for(j=0; j<size; j++){
+            printf("Type element [%d][%d]\n",i+1,j+1);
             scanf("%d", &matrice[i][j]);
 
         }
 
     }
-
     for(i=0; i<size; i++){
-        printf("| ");
+            printf("| ");
         for(j=0; j<size; j++){
+            
             printf("%d ", matrice[i][j]);
+
+        }
         
-       printf("|\n");
-    }
+        printf("|");
+        printf("\n");
 
-    do{
-        boolean = FALSE;
+    }
     for(i=0; i<size; i++){
-        for(j=0; j<size; j++){
+      for(j=0; j<size; j++){
+        if(i<=j){
+          if(matrice[i][j]!=0){
+            diagonal=1;
+          }
+          else{
+            diagonal = 0;
+            j=size+1;
+            i=size+1;
+          }
+        }
+        if(i>j){
+          if(matrice[i][j]==0){
+            diagonal=1;
+          }
+          else{
+            diagonal=0;
+            j=size+1;
+            i=size+1;
+          }
+        }
 
-            if(i<=j&&matrice[i][j]!=0){
-                
-                strcpy(diagonal, "TRUE");
-                boolean=TRUE;
-            }
+      }
 
-            else if(i>j&&matrice[i][j]==0){
-                strcpy(diagonal, "TRUE");
-                boolean=TRUE;
-
-            }
-            else{
-                strcpy(diagonal, "FALSE");
-            }
-           
     }
-    while(boolean==TRUE);
-    
+
     return diagonal;
+
+
 }
 
 
 
+int main()
+{
+    int sizeM, matriceM[LINES][COLUMNS], diagonalM;
+    diagonalM = verifyDiagonal(sizeM, matriceM);
+    printf("%d", diagonalM);
 
-//void verifyDiagonal()
-
-
-
-
-int main(){
-
-    int matriceZ[10][10], sizeZ ;
-    char *diagonalZ[20];
-
-
-    printf("%s", verifyDiagonal(sizeZ, matriceZ));
-
-    //gcc main.c -o main
     return 0;
 }
