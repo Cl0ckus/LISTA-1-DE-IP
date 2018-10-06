@@ -1,0 +1,34 @@
+int countChar(char str1[100], char c){
+
+    int flag=0, lenStr, i;
+    lenStr=strlen(str1);
+
+    for(i=0; i<lenStr; i++){
+
+        if(str1[i]==c){
+            flag++;
+        }
+
+    }
+
+    return flag;
+
+    
+
+}
+
+int main(){
+
+    char strM[100], cM;
+
+    printf("Type a string of characters:\n");
+    scanf(" %[^\n]s", strM);
+    printf("Type a character that you want to count inside this string:\n");
+    scanf(" %c", &cM);
+
+    
+
+    printf("The character %c was found %d times in your string.", cM, countChar(strM, cM));
+
+    return 0;
+}
