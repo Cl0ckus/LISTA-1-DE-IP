@@ -1,0 +1,144 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define N 3
+
+typedef struct{
+    int code;
+    char product[30];
+    int qtd;
+    float price;
+}itemStock;
+
+typedef struct{
+    int code;
+    int qtd;
+}itemSold;
+
+void systemclear(){
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    
+}
+
+void menuG(){
+
+    printf("\n\nWELCOME TO THE CIN MARKET, WHAT DO YOU WANT TO DO?\n\n");
+    printf("......1..SELL STUFF.......................................\n");
+    printf("......2..STOCK REPLENISHMENT..............................\n");
+    printf("......3..I ONLY WANT TO GET OUT OF HERE...................\n");
+    printf("......4..I WANT TO BE A MILIONAIRE........................\n");
+    printf("......5..I WANNA BE THE VERY BEST..........................\n");
+    printf("......6..OTHERS............................................\n");
+
+}
+
+void menu2G(){
+    printf("......1..SEE ITENS.......................................\n");
+    printf("......2..STOCK REPLENISHMENT..............................\n");
+    printf("......3..I ONLY WANT TO GET OUT OF HERE...................\n");
+}
+
+void menu22op(){
+
+
+}
+
+void menu21(){
+    printf("CODE \t ITEMS \t PRICE\n\n");
+    printf("100 \t POKEBALL \t $200.00\n");
+    printf("101 \t GREATBALL \t $600.00\n");
+    printf("200 \t POTION \t $300.00\n");
+}
+
+
+
+
+void atualizaEstoque(){
+    
+    
+    int code, ammount;
+    char option;
+
+    itemStock estoque[N]={{100, "POKEBALL", 100, 200.00},
+                         {101, "GREATBALL", 100, 600.00},
+                         {200, "POTION", 100, 300.00}};
+
+
+
+   // itemStock pokeball, greatball, potion;
+
+   // pokeball.code = 100;
+    //pokeball.product = {"POKEBALL"};
+   // pokeball.qtd = 15;
+   // pokebal.price = 100;
+
+   // greateball.code = 101;
+   // greatball.product = {"GREATBALL"};
+   // greatball.qtd = 15;
+   // greatbal.price = 600;
+
+   // potion.code = 100;
+   // potion.product = {"GREATBALL"};
+   // potion.qtd = 15;
+   // potion.price = 300;
+
+    do{
+        printf("What item do you want to replenish?(TYPE THE ITEM CODE)\n");
+        scanf("%d", &code);
+        printf("How many itens do you want to add?\n");
+        scanf("%d", &ammount);
+
+        if(code==100){
+            estoque[1].qtd+=ammount;
+        }
+        else if(code==101{
+            estoque[2].qtd+=ammount;
+        }
+        else if(code==102){
+            estoque[3].qtd+=ammount;
+        }
+
+        printf("Do you want to replenish another Item?(Y/n)\n");
+        scanf("%c", &option);
+    }while(option=='Y');
+
+
+}
+
+
+void verificaEstoque(itemEstoque estoque[N]){
+
+
+
+}
+
+void atualizaCompras(itemCompra compras[M], itemCompra c){
+
+    int stop, sum;
+
+    do{
+        printf("PRODUCT CODE: \n")
+        scanf();
+
+    }while(stop!=-1)
+
+
+
+
+}
+
+int main(){
+
+    int menu;
+    do{
+        printf("What do you want to do?");
+        switch(menu){
+
+            case '1': ;break;
+            case '2': ;break;
+            case '3': ;break;
+        }
+
+
+    }while()
+    return 0;
+}
