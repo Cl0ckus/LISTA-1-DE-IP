@@ -1,83 +1,76 @@
 //QUESTÃO 3 DA LISTA DE IP
 
 #include <stdio.h>
-#include <string.h>
-#define MAX1 10
-#define MAX2 10
-#define TRUE 1
-#define FALSE 0
+#include <stdlib.h>
+#define LINES 20
+#define COLUMNS 20
 
-void verifyIdentity(int lines, int matrice[MAX1][MAX2], char* identity){
+int verifyIdentity(int size, int matrice[LINES][COLUMNS]){
+    int i, j;
+    int identity=0;
 
-    int i,j,  columns;
-    char boolean;
-    
+    printf("What is the size of your matrice?\n");
+    scanf("%d", &size);
 
-  
-
-    printf("WELCOME TO THE NEW MATRIZ IDENTITY SOLUTION 5000\n\n");
-    printf("Type how many lines and columns your matrice has: \n");
-    scanf("%d", &lines);
-
-    columns=lines;
-
-    for(i=0; i<lines; i++){
-        for(j=0; j<lines; j++){
-            
-            printf("Type the element [%d][%d]: \n", i+1, j+1);
+    for(i=0; i<size; i++){
+        for(j=0; j<size; j++){
+            printf("Type element [%d][%d]\n",i+1,j+1);
             scanf("%d", &matrice[i][j]);
-
-         }
-
-    }
-
-    do{
-        boolean=FALSE;
-        for(i=0; i<lines; i++){
-            for(i=0; j<lines; i++){
-                if(i==j){
-                    if(matrice[i][j]==1){
-                        strcpy(identity, "TRUE");
-                        boolean = TRUE;
-
-                    }
-                }
-                else if(i!=j){
-                   if(matrice[i][j]==0){
-                        strcpy(identity, "TRUE");
-                        boolean = TRUE;
-
-                    }
-                }
-
-                if(boolean==FALSE){
-                    strcpy(identity, "FALSE");
-                }
-
-            }
 
         }
 
-        
-    }while(boolean==TRUE&&j<lines);
+    }
+    for(i=0; i<size; i++){
+            printf("| ");
+        for(j=0; j<size; j++){
+            
+            printf("%d ", matrice[i][j]);
 
-    
+        }
+        
+        printf("|");
+        printf("\n");
+
+    }
+    for(i=0; i<size; i++){
+      for(j=0; j<size; j++){
+        if(i==j){
+          if(matrice[i][j]==1){
+            identity=1;
+          }
+          else{
+            identity = 0;
+            j=size+1;
+            i=size+1;
+          }
+        }
+        if(i!=j){
+          if(matrice[i][j]==0){
+            identity=1;
+          }
+          else{
+            identity=0;
+            j=size+1;
+            i=size+1;
+          }
+        }
+
+      }
+
+    }
+
+    return identity;
+
 
 }
 
 
 
-
-
-int main(){
-
-    int size, m[MAX1][MAX2];
-    char confirmation[100];
-    char identityp[100];
-    verifyIdentity(size, m, identityp);
-    strcpy(confirmation, identityp);
-    printf("%s", confirmation);
-
+int main()
+{
+    int sizeM, matriceM[LINES][COLUMNS], identityM;
+    identityM = verifyIdentity(sizeM, matriceM);
+    printf("%d", identityM);
 
     return 0;
 }
