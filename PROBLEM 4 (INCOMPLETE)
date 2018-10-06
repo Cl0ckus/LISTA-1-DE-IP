@@ -8,9 +8,10 @@
 
 
 
-void verifyDiagonal(int size; int matrice[][20]){
+char* verifyDiagonal(int size, int matrice[][20]){
 
-    int i,j,size, diagonal;
+    int i,j,size;
+    char diagonal[10];
     char boolean;
 
     printf("What is the size of your matrice NxN?\n");
@@ -32,9 +33,30 @@ void verifyDiagonal(int size; int matrice[][20]){
        printf("|\n");
     }
 
+    do{
+        boolean = FALSE;
+    for(i=0; i<size; i++){
+        for(j=0; j<size; j++){
 
+            if(i<=j&&matrice[i][j]!=0){
+                
+                strcpy(diagonal, "TRUE");
+                boolean=TRUE;
+            }
+
+            else if(i>j&&matrice[i][j]==0){
+                strcpy(diagonal, "TRUE");
+                boolean=TRUE;
+
+            }
+            else{
+                strcpy(diagonal, "FALSE");
+            }
+           
+    }
+    while(boolean==TRUE);
     
-
+    return diagonal;
 }
 
 
@@ -47,11 +69,12 @@ void verifyDiagonal(int size; int matrice[][20]){
 
 int main(){
 
-    //int matriceZ[10][10];
+    int matriceZ[10][10], sizeZ ;
+    char *diagonalZ[20];
 
-    printMatrice();
 
-    
+    printf("%s", verifyDiagonal(sizeZ, matriceZ));
 
+    //gcc main.c -o main
     return 0;
 }
