@@ -7,11 +7,11 @@
 #define TRUE 1
 #define FALSE 0
 
-char verifyIdentity(int lines, int matrice[MAX1][MAX2]){
+void verifyIdentity(int lines, int matrice[MAX1][MAX2], char* identity){
 
     int i,j,  columns;
     char boolean;
-    char identity[100];
+    
 
   
 
@@ -22,10 +22,10 @@ char verifyIdentity(int lines, int matrice[MAX1][MAX2]){
     columns=lines;
 
     for(i=0; i<lines; i++){
-        for(i=0; j<columns; i++){
+        for(j=0; j<lines; j++){
             
             printf("Type the element [%d][%d]: \n", i+1, j+1);
-            scanf("%d", matrice[i][j]);
+            scanf("%d", &matrice[i][j]);
 
          }
 
@@ -37,21 +37,21 @@ char verifyIdentity(int lines, int matrice[MAX1][MAX2]){
             for(i=0; j<lines; i++){
                 if(i==j){
                     if(matrice[i][j]==1){
-                        strcpy(identity, " YU");
+                        strcpy(identity, "TRUE");
                         boolean = TRUE;
 
                     }
                 }
                 else if(i!=j){
                    if(matrice[i][j]==0){
-                        strcpy(identity, " TUT");
+                        strcpy(identity, "TRUE");
                         boolean = TRUE;
 
                     }
                 }
 
                 if(boolean==FALSE){
-                    strcpy(identity, " NOT");
+                    strcpy(identity, "FALSE");
                 }
 
             }
@@ -61,7 +61,7 @@ char verifyIdentity(int lines, int matrice[MAX1][MAX2]){
         
     }while(boolean==TRUE&&j<lines);
 
-    return identity;
+    
 
 }
 
@@ -71,9 +71,12 @@ char verifyIdentity(int lines, int matrice[MAX1][MAX2]){
 
 int main(){
 
-    int size, m[MAX1][MAX2],identity;
-    verifyIdentity(size, m);
-    printf("THE MATRICE IS%S IDENTITY", identity);
+    int size, m[MAX1][MAX2];
+    char confirmation[100];
+    char identityp[100];
+    verifyIdentity(size, m, identityp);
+    strcpy(confirmation, identityp);
+    printf("%s", confirmation);
 
 
     return 0;
