@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <string.h>
+#define TRUE 1
+#define FALSE 0
+
+
+
+
+
+
+void verifyDiagonal(int size; int matrice[][20]){
+
+    int i,j,size, diagonal;
+    char boolean;
+
+    printf("What is the size of your matrice NxN?\n");
+    scanf("%d", &size);
+    for(i=0; i<size; i++){
+        for(j=0;j<size; j++){
+            printf("Type the element [%d][%d]\n", i+1, j+1);
+            scanf("%d", &matrice[i][j]);
+
+        }
+
+    }
+
+    for(i=0; i<size; i++){
+        printf("| ");
+        for(j=0; j<size; j++){
+            printf("%d ", matrice[i][j]);
+        
+       printf("|\n");
+    }
+
+
+    
+
+}
+
+
+
+
+//void verifyDiagonal()
+
+
+
+
+int main(){
+
+    //int matriceZ[10][10];
+
+    printMatrice();
+
+    
+
+    return 0;
+}
