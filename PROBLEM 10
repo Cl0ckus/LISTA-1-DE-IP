@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int verifyCPF(char cpf[11]){
+
+  int verify=1;
+  int digit1, digit2;
+  int i, j=-1, k=-1,l;
+  int cpfc[11];
+  int ascN[10]={48, 49, 50, 51, 52, 53, 54, 55, 56, 57};
+  int sum1=0, prod1=1, sum2=0, prod2=1;
+
+  for(l=0; l<=11; l++){
+    for(i=0;i<=9;i++){
+      //printf(" str = %c \n", cpf[i]);
+      if(cpf[l]==ascN[i]){
+        cpfc[l]=i;
+      }
+      //printf("num = %d \n", cpfc[i]);
+    }
+  }
+
+  //for(i=0;i<11;i++){
+  //  printf("%d ", cpfc[i]);
+  //}
+
+  for(i=10; i>=2; i--){
+    j++;
+    prod1= cpfc[j]*i;
+    printf("prod is %d \n", prod1);
+    sum1+=prod1;
+    printf("SUM IS %d \n", sum1);
+  }
+
+  if((sum1*10)%11==10){
+    digit1=0;
+  }
+  else if((sum1*10)%11!=10){
+    digit1=(sum1*10)%11;
+  }
+
+  if(digit1!=cpfc[9]){
+    verify=0;
+    return verify;
+  }
+
+  for(i=11; i>=2; i--){
+    k++;
+    prod2= cpfc[k]*i;
+    sum2+=prod2;
+  }
+
+  if((sum2*10)%11==10){
+    digit2=0;
+  }
+  else if((sum2*10)%11!=10){
+    digit2=(sum2*10)%11;
+  }
+
+  if(digit2!=cpfc[10]){
+    verify=0;
+    return verify;
+  }
+
+  return verify;
+
+
+}
+
+
+int main(){
+
+  char cpfM[11];
+  int boolean;
+
+  printf("Digite um cpf:\n");
+  scanf(" %s", cpfM);
+
+
+  boolean= verifyCPF(cpfM);
+
+  printf("%d", boolean);
+
+
+
+}
