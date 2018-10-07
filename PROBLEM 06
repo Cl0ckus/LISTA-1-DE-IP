@@ -1,0 +1,51 @@
+#include <stdio.h>
+#define LN 3
+#define CN 3
+     
+void scanSquare(int square[LN][CN]){
+
+int i, j;
+
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            scanf("%d", &square[i][j]);
+        }
+    }                                                                                                    
+}
+
+int verifySquare(int square2[LN][CN]){
+    
+int element, sudoku=1, i,j, flag=0;
+
+for(element=1; element<=9; element++){
+        flag=0;
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            if(square2[i][j]==element){
+                flag++;
+            }
+            if(flag>1){
+                sudoku=0;
+                j=3+1;
+                i=3+1;
+                element=9+1;
+            }
+        }
+    }     
+    return sudoku;
+
+}
+
+}
+
+int main(){
+
+   int matrice[3][3], boolean;
+   scanSquare(matrice);
+   boolean = verifySquare(matrice);
+
+    printf("%d", boolean);
+
+  return 0;
+
+}
