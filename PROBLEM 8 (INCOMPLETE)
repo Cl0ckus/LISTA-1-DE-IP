@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <math.h>
+
+
+int intlen(int integer){
+    int divide;
+    int num, flag=0;
+    divide=integer;
+    while(divide>0){
+        divide=divide/10;
+        flag++;
+    }
+
+    return flag;
+
+}
+
+int subint(int number1, int number2){
+
+  int numberlen1,numberlen2, i,j, sub=0, digit1[20], digit2[20], flag=0,b=0;
+
+  numberlen1 = intlen(number1);
+
+    for(i=numberlen1-1; i>=0; i--){
+
+        digit1[i]=number1%10;
+        number1/=10;
+
+    }
+    //for(i=0; i<numberlen1; i++){
+      //printf("digit[%d]: %d \n",i+1, digit1[i]);
+
+    //}
+    numberlen2 = intlen(number2);
+    for(i=numberlen2-1; i>=0; i--){
+
+        digit2[i]=number2%10;
+        number2/=10;
+
+    }
+    //for(i=0; i<numberlen2; i++){
+      //printf("digit[%d]: %d \n",i+1, digit2[i]);
+
+    //}
+
+    for(i=0; i<numberlen2; i++){
+      //printf("LOOP 1 WORKS\n");
+      for(j=0; j<numberlen1; j++){
+        //printf("LOOP 2 WORKS\n");
+        if(digit2[i]==digit1[j]){
+          flag++;
+          printf("i is: %d\n", i);
+          printf("j is: %d\n", j);
+          printf("digit2[%d] is: %d\n", i, digit2[i]);
+          printf("digit1[%d] is: %d\n", i, digit1[j]);
+          printf("flag is: %d\n", flag);
+        }
+        if(flag==numberlen2){
+            sub=1;
+            j=numberlen1+1;
+            i=numberlen2+1;
+        }
+        //if(digit2[i]!=digit1[j]){
+        //   flag=0;
+        //}
+
+        
+
+      }
+
+    }
+
+    return sub;
+    
+
+}
+
+
+int main(){
+
+  int n1,n2, v[20], i;
+
+  printf("Digite um número: \n");
+  scanf("%d", &n1);
+  printf("Digite outro número: \n");
+  scanf("%d", &n2);
+
+  subint(n1,n2);
+
+  
+
+
+  printf("%d", subint(n1,n2));
+  
+  return 0;
+
+}
