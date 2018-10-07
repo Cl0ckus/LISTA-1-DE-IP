@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct{
+
+  int x, y;
+
+}ponto;
+
+typedef struct{
+
+  ponto sup_esquerdo, sup_direito;
+
+}retangulo;
+
+
