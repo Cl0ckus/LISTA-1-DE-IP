@@ -1,0 +1,139 @@
+#include <stdio.h>
+#define LN 9
+#define CN 9
+     
+void scanSudoku(int square[LN][CN]){
+
+int i, j;
+
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            scanf("%d", &square[i][j]);
+        }
+    }                                                                                                    
+}
+
+void printSudoku(int matriceP[LN][CN]){
+
+    int i, j, k, l;
+
+    for(k=0; k<9; k+=3){
+        for(l=0; l<9; l+=3){
+            for(i=k;i<3;i++){
+                printf("|");
+                for(j=l;j<3;j++){
+                    printf("%d", matriceP[i][j]);
+                }
+                printf("|\n");
+            } 
+        }
+    }  
+
+
+}
+
+int verifyLines(int matriceL[LN][CN]){
+
+    int i, j, k,sudoku1=1;
+
+    for(i=0;i<9;i++){
+        for(j=0;j<9;j++){
+            for(k=0;k<9;k++){
+                if(j!=k && matriceL[i][j]==matriceL[i][k]){
+                    sudoku1=0;
+                    k=9+1;
+                    j=9+1;
+                    i=9+1;
+                }
+
+            }
+            
+        }
+    }
+
+    return sudoku1;
+
+}
+
+int verifyColumns(int matriceC[LN][CN]){
+
+    int i, j, k,sudoku2=1;
+
+    for(j=0;j<9;j++){
+        for(i=0;i<9;i++){
+            for(k=0;k<9;k++){
+                if(j!=k && matriceC[i][j]==matriceC[i][k]){
+                    sudoku2=0;
+                    k=9+1;
+                    j=9+1;
+                    i=9+1;
+                }
+
+            }
+            
+        }
+    }
+
+    return sudoku2;
+
+}
+
+
+
+int verifySquare(int square2[LN][CN]){
+    
+    int element, sudoku3=1, i,j,k,l, flag=0;
+
+    for(k=0; k<9; k+=3){
+        for(l=0; l<9; l+=3){
+        for(element=1; element<=9; element++){
+                flag=0;
+            for(i=k;i<3;i++){
+                for(j=l;j<3;j++){
+                    if(square2[i+k][j+l]==element){
+                        flag++;
+                    }
+                    if(flag>1){
+                        sudoku3=0;
+                        j=3+1;
+                        i=3+1;
+                        element=9+1;
+                        k=9+1;
+                        l=9+1;
+
+                    }
+                }
+            } 
+        }
+    }    
+    return sudoku3;
+
+}
+
+}
+
+int verifySudoku(int bool1,int bool2,int bool3){
+    int sudoku=0;
+    if(bool1==1 && bool2==1 && bool3==1){
+        sudoku = 1;
+    }
+
+    return sudoku;
+
+}
+
+int main(){
+
+   int matrice[9][9],boolean, boolean1, boolean2, boolean3;
+   scanSudoku(matrice);
+   boolean1 = verifySquare(matrice);
+   boolean2 = verifyLines(matrice);
+   boolean3 = verifyColumns(matrice);
+   boolean = verifySudoku(boolean1, boolean2, boolean3);
+
+    printf("%d", boolean);
+
+
+  return 0;
+
+}
