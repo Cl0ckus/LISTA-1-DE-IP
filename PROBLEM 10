@@ -27,9 +27,9 @@ int verifyCPF(char cpf[11]){
   for(i=10; i>=2; i--){
     j++;
     prod1= cpfc[j]*i;
-    printf("prod is %d \n", prod1);
+    //printf("prod is %d \n", prod1);
     sum1+=prod1;
-    printf("SUM IS %d \n", sum1);
+    //printf("SUM IS %d \n", sum1);
   }
 
   if((sum1*10)%11==10){
