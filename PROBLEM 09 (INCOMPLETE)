@@ -1,0 +1,112 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+typedef struct{
+
+  int x, y;
+
+}ponto;
+
+typedef struct{
+
+  ponto sup_esquerdo, inf_direito;
+
+}retangulo;
+
+
+void systemClear(){
+  printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+}
+
+int calculaArea(retangulo ElPsyKongroo){
+
+    int area, l1, l2;
+
+    l1= abs(ElPsyKongroo.sup_esquerdo.x - ElPsyKongroo.inf_direito.x);
+    l2= abs(ElPsyKongroo.sup_esquerdo.y - ElPsyKongroo.inf_direito.y);
+    area = l1*l2;
+
+    return area;
+
+
+}
+
+ponto calculaCentro(retangulo SERN){
+
+  ponto point;
+
+    point.x = (SERN.sup_esquerdo.x + SERN.inf_direito.x)/2;
+    point.y = (SERN.sup_esquerdo.y + SERN.inf_direito.y)/2;
+
+  return point;
+}
+
+
+int verificaPonto(ponto p, retangulo r){
+
+  int verify=1;
+
+  if(p.x<r.sup_esquerdo.x){
+    verify=0;
+  }
+  else if(p.x>r.inf_direito.x){
+    verify=0;
+  }
+  if(p.y>r.sup_esquerdo.y){
+    verify=0;
+  }
+  else if(p.y<r.inf_direito.y){
+    verify=0;
+  }
+
+
+  return verify;
+
+}
+
+
+int main(){
+
+  //retangulo A;
+
+  //scanf("%d", &A.sup_esquerdo.x);
+  //printf("%d", A.sup_esquerdo.x);
+
+  retangulo R;
+  ponto P, F2;
+
+  int F1, F3;
+
+
+  printf("Digite as coordenadas de um ponto: \n");
+  printf("x: \n");
+  scanf("%d", &P.x);
+  printf("y: \n");
+  scanf("%d", &P.y);
+
+  systemClear();
+  printf("Digite as coordenadas  do seu retangulo : \n\n");
+  printf("Digite a coordenada superior esquerda:\n");
+  printf("x1: \n");
+  scanf("%d", &R.sup_esquerdo.x);
+  printf("y1: \n");
+  scanf("%d", &R.sup_esquerdo.y);
+  printf("Digite a coordenada inferior  direita:\n");
+  printf("x2: \n");
+  scanf("%d", &R.inf_direito.x);
+  printf("y2: \n");
+  scanf("%d", &R.inf_direito.y);
+
+
+  F1=calculaArea(R);
+  F2=calculaCentro(R);
+  F3=verificaPonto(P,R);
+
+  systemClear();
+  printf("A area do retangulo e: %d\n", F1);
+  printf("O centro do retangulo e: (%d, %d) \n", F2.x, F2.y);
+  printf("O ponto pertence ao retangulo? %d", F3);
+
+
+  return 0;
+}
