@@ -4,8 +4,8 @@
 void strsub(char str1[200], char str2[200], int i){
 
     int j, lenStr,k=0;
-    lenStr= i+1+strlen(str2);
-
+    lenStr= strlen(str2);
+    printf("%d\n", lenStr);
     for(j=i; j<lenStr; j++){
 
        str1[j]=str2[k];
@@ -23,9 +23,9 @@ int main(){
     char strM1[200], strM2[200];
 
     printf("Type a string:\n");
-    scanf(" %[^\n]s", strM1[200]);
+    scanf(" %[^\n]s", strM1);
     printf("Type another string:\n");
-    scanf(" %[^\n]s", strM2[200]);
+    scanf(" %[^\n]s", strM2);
     printf("Type an integer");
     scanf("%d", &iM);
 
@@ -36,4 +36,3 @@ int main(){
 
     return 0;
 }
-
