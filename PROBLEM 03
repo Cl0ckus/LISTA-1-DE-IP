@@ -5,13 +5,11 @@
 #define LINES 20
 #define COLUMNS 20
 
-int verifyIdentity(int size, int matrice[LINES][COLUMNS]){
+
+
+
+void scanMatrice(int size, int matrice[LINES][COLUMNS]){
     int i, j;
-    int identity=0;
-
-    printf("What is the size of your matrice?\n");
-    scanf("%d", &size);
-
     for(i=0; i<size; i++){
         for(j=0; j<size; j++){
             printf("Type element [%d][%d]\n",i+1,j+1);
@@ -20,7 +18,14 @@ int verifyIdentity(int size, int matrice[LINES][COLUMNS]){
         }
 
     }
-    for(i=0; i<size; i++){
+
+}
+
+void printMatrice(int size, int matrice[LINES][COLUMNS]){
+
+    int i, j;
+
+     for(i=0; i<size; i++){
             printf("| ");
         for(j=0; j<size; j++){
             
@@ -32,6 +37,16 @@ int verifyIdentity(int size, int matrice[LINES][COLUMNS]){
         printf("\n");
 
     }
+}
+
+
+int verifyIdentity(int size, int matrice[LINES][COLUMNS]){
+    int i, j;
+    int identity=0;
+
+
+    
+   
     for(i=0; i<size; i++){
       for(j=0; j<size; j++){
         if(i==j){
@@ -68,9 +83,29 @@ int verifyIdentity(int size, int matrice[LINES][COLUMNS]){
 
 int main()
 {
-    int sizeM, matriceM[LINES][COLUMNS], identityM;
+    int sizeM, matriceM[LINES][COLUMNS], identityM,i,j;
+
+    printf("What is the size of your matrice?\n");
+    scanf("%d", &sizeM);
+    scanMatrice(sizeM,matriceM);
+    //for(i=0; i<sizeM; i++){
+      //for(j=0;j<sizeM;j++){
+        //printf("%d",matriceM[i][j]);
+      //}
+    //}
+    //printf("%d", sizeM);
     identityM = verifyIdentity(sizeM, matriceM);
-    printf("%d", identityM);
+
+    if(identityM==0){
+        printf("\nThe matrice:\n\n");
+        printMatrice(sizeM,matriceM);
+        printf("\nis not identity\n");
+    }
+    else if (identityM==1){
+        printf("\nThe matrice:\n\n");
+        printMatrice(sizeM,matriceM);
+        printf("\nis identity\n");
+    }
 
     return 0;
 }
