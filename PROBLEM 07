@@ -24,9 +24,7 @@ void printSudoku(int matriceP[LN][CN]){
                     printf("%d ", matriceP[i][j]);
                 }
                 printf("|\n");
-            } 
-        }
-    }  
+            }  
 
 
 }
