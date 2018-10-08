@@ -1,46 +1,75 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
-void tMatrice() {
-    int nL, nC, i,j;
 
-    printf("How many lines does your matrice has?\n");
-    scanf("%d", &nL);
-    printf("How many columns does your matrice has?\n");
-    scanf("%d", &nC);
-    int matriz[nL][nC];
-    for(i=0; i<nL ; i++){
-        for(j=0; j<nC; j++){
-        printf("Type the element [%d][%d]\n", i+1, j+1);
-        scanf("%d", &matriz[i][j]);
-        }
-    }    
 
-  printf("Your  matrice is:\n");
-    for(i=0; i<nL ; i++){
-        printf("| ");
+void tMatrice(int nL, int nC, int matriz[20][20]) {
+    int i,j, aux[20][20];
+
+   for(i=0; i<nL; i++){
         for(j=0; j<nC; j++){
-        
-        printf("%d ", matriz[i][j]);
+           aux[i][j]=matriz[i][j];
+
         }
-        printf("|\n");
     }
 
-
-
-    printf("Your transposed matrice is:\n");
     for(i=0; i<nC ; i++){
-        printf("| ");
         for(j=0; j<nL; j++){
         
-        printf("%d ", matriz[j][i]);
+        matriz[i][j]=aux[j][i];
         }
-        printf("|\n");
     }
 }
 
+void scanMatrice(int l, int c, int matrices[20][20]){
+    int i, j;
+    for(i=0; i<l; i++){
+        for(j=0; j<c; j++){
+            printf("Type element [%d][%d]\n",i+1,j+1);
+            scanf("%d", &matrices[i][j]);
+
+        }
+
+    }
+
+}
+
+void printMatrice(int l, int c, int matrice[20][20]){
+
+    int i, j;
+
+     for(i=0; i<l; i++){
+            printf("| ");
+        for(j=0; j<c; j++){
+            
+            printf("%d ", matrice[i][j]);
+
+        }
+        
+        printf("|");
+        printf("\n");
+
+    }
+}
+
+
 int main(){
-  tMatrice();
+
+    int lines, columns, matrice[20][20];
+
+
+  printf("How many lines does your matrice has?\n");
+  scanf("%d", &lines);
+  printf("How many columns does your matrice has?\n");
+  scanf("%d", &columns);
+
+  scanMatrice(lines, columns, matrice);
+
+  printf("Your matrice is: \n\n");
+  printMatrice(lines, columns, matrice);
+  tMatrice(lines, columns, matrice);
+  printf("\n\nYour transposed matrice is: \n\n");
+  printMatrice(columns, lines, matrice);
+
   return 0;
 }
