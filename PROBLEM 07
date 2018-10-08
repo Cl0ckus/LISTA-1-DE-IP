@@ -6,8 +6,8 @@ void scanSudoku(int square[LN][CN]){
 
 int i, j;
 
-    for(i=0;i<3;i++){
-        for(j=0;j<3;j++){
+    for(i=0;i<9;i++){
+        for(j=0;j<9;j++){
             scanf("%d", &square[i][j]);
         }
     }                                                                                                    
@@ -15,14 +15,13 @@ int i, j;
 
 void printSudoku(int matriceP[LN][CN]){
 
-    int i, j, k, l;
+    int i, j;
 
-    for(k=0; k<9; k+=3){
-        for(l=0; l<9; l+=3){
-            for(i=k;i<3;i++){
+    
+            for(i=0;i<9;i++){
                 printf("|");
-                for(j=l;j<3;j++){
-                    printf("%d", matriceP[i][j]);
+                for(j=0;j<9;j++){
+                    printf("%d ", matriceP[i][j]);
                 }
                 printf("|\n");
             } 
@@ -131,8 +130,12 @@ int main(){
    boolean3 = verifyColumns(matrice);
    boolean = verifySudoku(boolean1, boolean2, boolean3);
 
-    printf("%d", boolean);
-
+   if(boolean==1){
+     printf("TRUE");
+   }
+   else{
+     printf("FALSE");
+     }
 
   return 0;
 
