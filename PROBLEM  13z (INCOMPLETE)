@@ -3,17 +3,24 @@
 
 void strsub(char str1[200], char str2[200], int i){
 
-    int j, lenStr,k=0;
-    lenStr= strlen(str2);
-    printf("%d\n", lenStr);
-    for(j=i; j<lenStr; j++){
+    int j, lenstr1,lenstr2,k=0;
+    lenstr1= strlen(str1);
+    lenstr2= strlen(str2)+i;
+    //printf("%d\n", lenstr2);
 
-       str1[j]=str2[k];
-        
+    if(i<=lenstr1){
+        for(j=i; j<lenstr2; j++){
 
-        k++;
+        str1[j]=str2[k];
+            
 
-    }  
+            k++;
+
+        }  
+    }
+    else if(i>lenstr1){
+        strcat(str1,str2);
+    }
 
 }
 
