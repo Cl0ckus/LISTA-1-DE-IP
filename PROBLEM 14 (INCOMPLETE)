@@ -1,144 +1,203 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define N 3
+#include <string.h>
+#include <locale.h>
+#define M 2
+#define N 2
 
 typedef struct{
-    int code;
-    char product[30];
+    int codProd;
+    char prod[30];
     int qtd;
-    float price;
-}itemStock;
+    float preco;
+}itemEstoque;
 
 typedef struct{
-    int code;
+
+    int codProd;
     int qtd;
-}itemSold;
 
-void systemclear(){
-    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    
-}
+}itemCompra;
 
-void menuG(){
 
-    printf("\n\nWELCOME TO THE CIN MARKET, WHAT DO YOU WANT TO DO?\n\n");
-    printf("......1..SELL STUFF.......................................\n");
-    printf("......2..STOCK REPLENISHMENT..............................\n");
-    printf("......3..I ONLY WANT TO GET OUT OF HERE...................\n");
-    printf("......4..I WANT TO BE A MILIONAIRE........................\n");
-    printf("......5..I WANNA BE THE VERY BEST..........................\n");
-    printf("......6..OTHERS............................................\n");
+
+
+
+void menu(){
+
+    printf("1..Processa Compras\n");
+    printf("2..Repõe Estoque\n");
+    printf("3..Sair\n");
 
 }
 
-void menu2G(){
-    printf("......1..SEE ITENS.......................................\n");
-    printf("......2..STOCK REPLENISHMENT..............................\n");
-    printf("......3..I ONLY WANT TO GET OUT OF HERE...................\n");
-}
-
-void menu22op(){
 
 
-}
-
-void menu21(){
-    printf("CODE \t ITEMS \t PRICE\n\n");
-    printf("100 \t POKEBALL \t $200.00\n");
-    printf("101 \t GREATBALL \t $600.00\n");
-    printf("200 \t POTION \t $300.00\n");
-}
+void atualizaEstoque(itemEstoque estoque[N], itemCompra c){
 
 
 
 
-void atualizaEstoque(){
-    
-    
-    int code, ammount;
-    char option;
-
-    itemStock estoque[N]={{100, "POKEBALL", 100, 200.00},
-                         {101, "GREATBALL", 100, 600.00},
-                         {200, "POTION", 100, 300.00}};
+    int i;
+    char ask;
 
 
+    printf("Bem Vindo ao atualiza estoque:\n\n");
 
-   // itemStock pokeball, greatball, potion;
-
-   // pokeball.code = 100;
-    //pokeball.product = {"POKEBALL"};
-   // pokeball.qtd = 15;
-   // pokebal.price = 100;
-
-   // greateball.code = 101;
-   // greatball.product = {"GREATBALL"};
-   // greatball.qtd = 15;
-   // greatbal.price = 600;
-
-   // potion.code = 100;
-   // potion.product = {"GREATBALL"};
-   // potion.qtd = 15;
-   // potion.price = 300;
 
     do{
-        printf("What item do you want to replenish?(TYPE THE ITEM CODE)\n");
-        scanf("%d", &code);
-        printf("How many itens do you want to add?\n");
-        scanf("%d", &ammount);
 
-        if(code==100){
-            estoque[1].qtd+=ammount;
-        }
-        else if(code==101{
-            estoque[2].qtd+=ammount;
-        }
-        else if(code==102){
-            estoque[3].qtd+=ammount;
-        }
+    printf("Digite o código do item que você pretende atualizar:\n");
+    scanf("%d", &c.codProd);
+    printf("Digite a quantidade que você pretente adicionar: \n\n");
+    scanf("%d", &c.qtd);
 
-        printf("Do you want to replenish another Item?(Y/n)\n");
-        scanf("%c", &option);
-    }while(option=='Y');
+    for(i=0;i<N;i++){
+
+            if(estoque[i].codProd==c.codProd){
+                printf("Quantidade Antiga:\n\n");
+                printf("Código \t Produto \t Quantidade \t Preço \n\n");
+                printf("%d \t %s \t %d \t %f\n\n", estoque[i].codProd, estoque[i].prod, estoque[i].qtd, estoque[i].preco);
+                printf("Quantidade atual:\n\n");
+
+                estoque[i].qtd+=c.qtd;
+
+                printf("Código \t Produto \t Quantidade \t Preço \n\n");
+                printf("%d \t %s \t %d \t %f\n\n", estoque[i].codProd, estoque[i].prod, estoque[i].qtd, estoque[i].preco);
+
+
+            }
+
+
+
+
+    }
+
+
+    printf("Queres atualizar outro item?\n\n");
+    }while(scanf(" %c", &ask) && ask=='y');
+
+
 
 
 }
 
+//float buscaPrecoProduto(int codProd, itemEstoque estoque[N]){
+
+
+
+//    return 0;
+//}
+
+//
 
 void verificaEstoque(itemEstoque estoque[N]){
 
+    int i,j,k;
 
+    for(i=0; i<N; i++){
+
+
+        if(estoque[i].qtd<=10){
+            printf("voce precisa repor o produto: %s\n", estoque[i].prod);
+        }
+    }
 
 }
 
-void atualizaCompras(itemCompra compras[M], itemCompra c){
+void atualizaCompras(itemCompra compras[M], itemCompra c, itemEstoque meuEstoque[N]){
 
-    int stop, sum;
+    int i=0, j, k;
+    float price=0;
 
+    printf("Welcome to the pokestore\n\n");
+    //printf("Codigo \t nome \t preco");
     do{
-        printf("PRODUCT CODE: \n")
-        scanf();
+        printf("Digite codigo do produto\n");
+        scanf("%i", &c.codProd);
 
-    }while(stop!=-1)
+        compras[i].codProd = c.codProd;
 
+        if(c.codProd!=-1){
+
+            printf("Digite a quantidade do produto\n");
+            scanf("%i", &c.qtd);
+            compras[i].qtd = c.qtd;
+
+
+            for(j=0; j<N; j++){
+                if(compras[i].codProd==meuEstoque[j].codProd){
+                    price+=meuEstoque[j].preco*compras[i].qtd;
+                    meuEstoque[j].qtd-=compras[i].qtd;
+
+                }
+            }
+        }
+
+        printf("%d",compras[i].codProd);
+
+
+
+        i++;
+
+    }while(compras[i-1].codProd!= -1);
+
+    printf("Seu prejuízo foi de %.2f\n\n", price);
+    verificaEstoque(meuEstoque);
 
 
 
 }
+
+//
+
+
+
+
+
+
 
 int main(){
 
-    int menu;
-    do{
-        printf("What do you want to do?");
-        switch(menu){
-
-            case '1': ;break;
-            case '2': ;break;
-            case '3': ;break;
-        }
+    itemEstoque meuEstoque[N] = {{1, "Time Machine", 11, 900.00},
+                              {2, "Money", 11, 1.00}};
 
 
-    }while()
+    int i, j,k;
+
+    itemCompra v[M], a;
+    int option;
+
+
+
+    //for(i=0; i<N; i++){
+    //printf("code \t name \t ammount \t price \n");
+    //printf("%d \t %s \t %d \t %.2f \n", meuEstoque[i].codProd, meuEstoque[i].prod, meuEstoque[i].qtd, meuEstoque[i].preco);
+    //}
+
+    menu();
+
+    while(scanf("%d", &option)&&option!=3){
+    system("cls");
+
+
+    switch (option){
+
+
+    case 1:  atualizaCompras(v,a, meuEstoque);break;
+    case 2:  atualizaEstoque(meuEstoque, a); break;
+    default: exit(1);
+
+    }
+     menu();
+    }
+
+
+
+
+
+
+
+
     return 0;
 }
